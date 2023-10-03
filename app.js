@@ -40,23 +40,3 @@ function gender(){
 }
 
 
-var divElement = document.createElement("div");
-var paragraphElement = document.createElement("p");
-var ulElement = document.createElement("ul");
-var liElement1 = document.createElement("li");
-var liElement2 = document.createElement("li");
-var liElement3 = document.createElement("li");
-
-paragraphElement.textContent=userName;
-liElement1.textContent = "Gender : "+userGender;
-liElement2.textContent = "Drink Type : "+drinkType;
-liElement3.textContent = "Drink : "+drinkName;
-
-ulElement.appendChild(liElement1);
-ulElement.appendChild(liElement2);
-ulElement.appendChild(liElement3);
-paragraphElement.appendChild(ulElement);
-divElement.appendChild(paragraphElement);
-
-var container = document.getElementById("userData");
-container.appendChild(divElement);
