@@ -1,4 +1,4 @@
-
+/*
 var userInfo=[];
 var userName = prompt("Enter your name to continue:");
 userInfo.push(userName);
@@ -37,26 +37,46 @@ function gender(){
         gender= prompt("Are you male or female?");
     }  
     return gender; 
-}
+}*/
 
 
-var divElement = document.createElement("div");
-var paragraphElement = document.createElement("p");
-var ulElement = document.createElement("ul");
-var liElement1 = document.createElement("li");
-var liElement2 = document.createElement("li");
-var liElement3 = document.createElement("li");
+var button = document.getElementById('button');
 
-paragraphElement.textContent=userName;
-liElement1.textContent = "Gender : "+userGender;
-liElement2.textContent = "Drink Type : "+drinkType;
-liElement3.textContent = "Drink : "+drinkName;
+// Add a click event listener to the button
+button.addEventListener('click', function() {
+       var userName = document.getElementById("userName").value;
+       var age = document.getElementById("age").value;
+       var hotDrink = document.getElementById("hot");
+       var coldDrink = document.getElementById("cold");
+       var drinkName = document.getElementById("drinkName").value;
+       
+       if (hotDrink.checked && !coldDrink.checked) {
+           drinkType = "hot";
+       } else if (coldDrink.checked && !hotDrink.checked) {
+           drinkType = "cold";
+       }
 
-ulElement.appendChild(liElement1);
-ulElement.appendChild(liElement2);
-ulElement.appendChild(liElement3);
-paragraphElement.appendChild(ulElement);
-divElement.appendChild(paragraphElement);
+       var divElement = document.createElement("div");
+       var paragraphElement = document.createElement("p");
+       var ulElement = document.createElement("ul");
+       var liElement1 = document.createElement("li");
+       var liElement2 = document.createElement("li");
+       var liElement3 = document.createElement("li");
+       
+       paragraphElement.textContent=userName;
+       liElement1.textContent = "Age : "+age;
+       liElement2.textContent = "Drink Type : "+drinkType;
+       liElement3.textContent = "Drink : "+drinkName;
+       
+       ulElement.appendChild(liElement1);
+       ulElement.appendChild(liElement2);
+       ulElement.appendChild(liElement3);
+       paragraphElement.appendChild(ulElement);
+       divElement.appendChild(paragraphElement);
+       
+       var container = document.getElementById("userData");
+       container.appendChild(divElement);
+       
+    });
 
-var container = document.getElementById("userData");
-container.appendChild(divElement);
+
